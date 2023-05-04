@@ -11,79 +11,85 @@ import com.diaz.uf4.practicainterfaces_eduardodiaz.interfaces.EsLiquido;
  *
  * @author eduardodiamar
  */
-public class Detergente implements ConDescuento, EsLiquido{
+public class Detergente implements ConDescuento, EsLiquido {
 
     // Atributos
-    private String Marca;
-    private double Precio;
-    
+    private String marca;
+    private double precio;
+    private String tipoEnvase;
+    private double volumen;
+    private double descuento;
+
     // Constructor
-    public Detergente(){
-    };
+    public Detergente() {
+    }
+
+    ;
     
     public Detergente(String Marca, double Precio) {
-        this.Marca = Marca;
-        this.Precio = Precio;
+        this.marca = Marca;
+        this.precio = Precio;
     }
 
     // Getters & Setters
-
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String Marca) {
-        this.Marca = Marca;
+        this.marca = Marca;
     }
 
     public double getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(double Precio) {
-        this.Precio = Precio;
+        this.precio = Precio;
     }
-    
-    
+
     // Aux
     @Override
     public void setDescuento(double des) {
+        this.descuento = descuento;
     }
 
     @Override
     public double getDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.descuento;
     }
 
     @Override
     public double getPrecioDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        double factorDescuento = (100 - this.descuento) / 100;
+        return this.precio * factorDescuento;
     }
 
     @Override
     public void setVolumen(double v) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.volumen = v;
     }
 
     @Override
     public double getVolumen() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.volumen;
     }
 
     @Override
     public void setTipoEnvase(String env) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.tipoEnvase = env;
     }
 
     @Override
     public String getTipoEnvase() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.tipoEnvase;
     }
 
     @Override
     public String toString() {
-        return "Detergente{" + "Marca=" + Marca + ", Precio=" + Precio + '}';
+        return "Detergente{" + "marca=" + marca + ", precio=" + precio + ", tipoEnvase=" + tipoEnvase + ", volumen=" + volumen + ", descuento=" + descuento + '}';
     }
-    
-    
+
+  
+
 }

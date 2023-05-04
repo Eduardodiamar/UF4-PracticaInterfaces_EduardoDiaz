@@ -14,9 +14,10 @@ import java.time.LocalDate;
 public class Cereales implements EsAlimento {
 
     // Atributos
-    private String Marca;
-    private double Precio;
-    private String Tipo;
+    private String marca;
+    private double precio;
+    private String tipoCereal;
+    private LocalDate caducidad;
 
     // Constructor
     public Cereales() {
@@ -25,52 +26,64 @@ public class Cereales implements EsAlimento {
     ;
     
     public Cereales(String Marca, double Precio, String Tipo) {
-        this.Marca = Marca;
-        this.Precio = Precio;
-        this.Tipo = Tipo;
+        this.marca = Marca;
+        this.precio = Precio;
+        this.tipoCereal = Tipo;
     }
 
     // Getters & Setters
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String Marca) {
-        this.Marca = Marca;
+        this.marca = Marca;
     }
 
     public double getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(double Precio) {
-        this.Precio = Precio;
+        this.precio = Precio;
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipoCereal;
     }
 
     public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+        this.tipoCereal = Tipo;
     }
-    
-    
 
     // Aux
     @Override
     public void setCaducidad(LocalDate fc) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.caducidad = fc;
     }
 
     @Override
     public LocalDate getCaducidad() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.caducidad;
     }
 
     @Override
     public int getCalorias() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        switch (getTipo().toLowerCase()) {
+            case "espelta":
+                return 5;
+            case "maíz":
+                return 12;
+            case "trigo":
+                return 12;
+            default:
+                return 15;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Cereales{" + "marca=" + marca + ", precio=" + precio + ", tipoCereal=" + tipoCereal + ", caducidad=" + caducidad +" calorías="+getCalorias()+  '}';
     }
 
 }
